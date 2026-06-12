@@ -1,0 +1,290 @@
+/* Custom Typography and Colors */
+:root {
+    --bg-primary: #f4f6f8;
+    --color-navy: #1a2b4c;
+    --color-gold: #c5a059;
+    --color-dark: #2c3e50;
+    --color-muted: #64748b;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-primary);
+    color: var(--color-dark);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styling */
+.app-header {
+    background-color: var(--color-navy);
+    color: #ffffff;
+    padding: 40px 0;
+    margin-bottom: 40px;
+    border-bottom: 4px solid var(--color-gold);
+}
+
+.app-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* Structural Layout Cards */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow: var(--card-shadow);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--color-navy);
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-gold);
+}
+
+.section-desc {
+    color: var(--color-muted);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Section 1: Timeline Styling */
+.timeline {
+    position: relative;
+    border-left: 2px solid #e2e8f0;
+    padding-left: 30px;
+    margin-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.time-marker {
+    position: absolute;
+    left: -152px;
+    top: 4px;
+    width: 100px;
+    text-align: right;
+    font-weight: 700;
+    color: var(--color-gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Dynamic adjusting for small viewports */
+@media (max-width: 768px) {
+    .timeline { padding-left: 15px; margin-left: 0; }
+    .time-marker { position: static; text-align: left; width: auto; margin-bottom: 5px; }
+}
+
+.time-content h3 {
+    font-size: 1.2rem;
+    color: var(--color-navy);
+    margin-bottom: 6px;
+}
+
+/* Section 2: Character Layout engine */
+.character-interface {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .character-interface { grid-template-columns: 1fr; }
+}
+
+.char-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .char-tabs { flex-direction: row; flex-wrap: wrap; }
+}
+
+.tab-btn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-btn:hover {
+    background: #f1f5f9;
+    border-color: var(--color-gold);
+}
+
+.tab-btn.active {
+    background: var(--color-navy);
+    color: #ffffff;
+    border-color: var(--color-navy);
+}
+
+/* Display panel design */
+.char-layout {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 25px;
+    animation: fadeIn 0.4s ease;
+}
+
+@media (max-width: 550px) {
+    .char-layout { grid-template-columns: 1fr; }
+}
+
+.char-img-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    object-fit: cover;
+    background-color: #f1f5f9;
+}
+
+.char-meta h3 {
+    font-size: 1.6rem;
+    color: var(--color-navy);
+    margin-bottom: 4px;
+}
+
+.char-title-tag {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+}
+
+.meta-block {
+    margin-bottom: 15px;
+}
+
+.meta-block strong {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+}
+
+/* Section 3: Critique Grid & Video Responsive Mechanics */
+.critique-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+    .critique-grid { grid-template-columns: 1fr; }
+}
+
+blockquote {
+    border-left: 4px solid var(--color-gold);
+    padding: 15px 20px;
+    background-color: #f8fafc;
+    font-style: italic;
+    color: #334155;
+    margin: 20px 0;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 15px 0 20px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.discussion-box {
+    background-color: #f0f4f8;
+    border-radius: 8px;
+    padding: 20px;
+    border-top: 3px solid var(--color-navy);
+}
+
+.discussion-box h4 {
+    color: var(--color-navy);
+    margin-bottom: 10px;
+}
+
+.discussion-box ul {
+    padding-left: 20px;
+}
+
+.discussion-box li {
+    margin-bottom: 8px;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
